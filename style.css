@@ -1,0 +1,33 @@
+
+.jetaime {
+    background-color: white;
+    font-size: 29pt;
+    text-align: center;
+    color: rgb(255, 0, 0);
+    font-family: 'Playfair Display', serif;
+}
+#jetaimediv {
+    background-color: white; width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+.content {
+    z-index: 1;
+    position: relative;
+    top: 150px;
+    font-family: 'Lora', serif;
+    font-size: 24pt;
+}
+
+.button {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 50px;
+    background-color: white;
+    border-radius: 1000px;
+    font-size: 20px;
+}
