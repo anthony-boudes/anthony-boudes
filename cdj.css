@@ -4,8 +4,8 @@
     text-align: center;
 }
 .img {
-    width: 100%;
-    border: 1px black solid;
+    width: 500%;
+    border: 0px black solid;
     border-radius: 30px;
 }
 body {
