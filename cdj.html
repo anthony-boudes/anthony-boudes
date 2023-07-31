@@ -1,45 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="cdj.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>❤</title>
+    <title>Document</title>
 </head>
 <body>
-    <center>
-        <header>
+    <div class="cdj">
+        <h1 class="title">contenu du jour</h1>
+        <hr>
+        <div class="container">
+            <h1 id="headline">Temps avant de nous revoir</h1>
+            <div id="countdown">
+              <ul>
+                <li><span id="days"></span>days</li>
+                <li><span id="hours"></span>Hours</li>
+                <li><span id="minutes"></span>Minutes</li>
+                <li><span id="seconds"></span>Seconds</li>
+              </ul>
+            </div>
+            <div id="content" class="emoji">
+              <span>🥳</span>
+              <span>🎉</span>
+              <span>🎂</span>
+            </div>
+          </div>
+        <div class="cplusa"><h1 class="cplusatext">C+A❤</h1></div>
         
-         <p class="title">C+A ❤</p>
-     
-        </header>
-     </center>
-
-     <center>
-        <div class="cdj">
-            <div class="titlecdj">
-            <p class="titlecdjtext">contenu du jour</p>
-        </div>
-        <h3 class="contentcdj">je t'aimeee (bon j'ai pas trop d'inspi donc je t'ai fait la galerie partagée)</h3>
-        </div>
-     </center>
-          
-          <!-- galerie -->
-          <center>
-          <div class="galerie">
-            <div class="titlegallery">
-            <p class="titlecdjtext">Galerie</p>
-        </div>
-        <span class="buttongallery"> <a href="https://photos.app.goo.gl/2gFim3P1GZMquHNc6"> <button class="button1">Acceder a la galerie partagée</button> </a> </span>
-    </center>
-  <!-- galerie x -->
-<h2 class="other">D’autres choses arrivent bientôt 👀</h2>
-<script src="script.js"></script>
+    </div>
+    <div class="galerie">
+        <h1 class="title">Galerie</h1>
+        <hr>
+        <h2 class="waitext">La galerie sera bientôt disponible...</h2>
+        
+    </div>
+   <script>(function () {
+    const second = 1000,
+          minute = second * 60,
+          hour = minute * 60,
+          day = hour * 24;
+  
+    //I'm adding this section so I don't have to keep updating this pen every year :-)
+    //remove this if you don't need it
+    let today = new Date(),
+        dd = String(today.getDate()).padStart(2, "0"),
+        mm = String(today.getMonth() + 1).padStart(2, "0"),
+        yyyy = today.getFullYear(),
+        nextYear = yyyy + 1,
+        dayMonth = "08/03/",
+        birthday = dayMonth + yyyy;
+    
+    today = mm + "/" + dd + "/" + yyyy;
+    if (today > birthday) {
+      birthday = dayMonth + nextYear;
+    }
+    //end
+    
+    const countDown = new Date(birthday).getTime(),
+        x = setInterval(function() {    
+  
+          const now = new Date().getTime(),
+                distance = countDown - now;
+  
+          document.getElementById("days").innerText = Math.floor(distance / (day)),
+            document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
+            document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
+            document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
+  
+          //do something later when date is reached
+          if (distance < 0) {
+            document.getElementById("headline").innerText = "It's my birthday!";
+            document.getElementById("countdown").style.display = "none";
+            document.getElementById("content").style.display = "block";
+            clearInterval(x);
+          }
+          //seconds
+        }, 0)
+    }());</script>
 </body>
 </html>
